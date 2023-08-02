@@ -15,29 +15,22 @@ class TaskManager{
   }
 
   void displayAll(){
-    int index = 1;
-    for(Task task in tasks){
-      print(index);
-      display(task);
-      index++;
-    }
+    display(tasks);
   }
 
   void displayComplete(){
 
     List<Task> tasks = this.Completed();
-    for (Task task in tasks){
-      display(task);
+      display(tasks);
       
-    }
+    
   }
 
   void displayPending(){
   
     List<Task> tasks = this.Pending();
-    for (Task task in tasks){
-      display(task);
-    }
+      display(tasks);
+    
   }
 
   void editTask(Task previousTask , Task newTask){
@@ -48,13 +41,17 @@ class TaskManager{
 
   }
 
-  void display(Task task){
-    
-    print('Title : ${task.title} ');
-    print('Description : ${task.description}');
-    print('Due Date : ${task.dueDate}');
-    print('Status : ${task.status == true? "complete" : "pending"}');
-    print('\n\n');
+  void display(List<Task> task){
+    int index = 1;
+    for(Task task in tasks){
+      print(index);
+      print('Title : ${task.title} ');
+      print('Description : ${task.description}');
+      print('Due Date : ${task.dueDate}');
+      print('Status : ${task.status == true? "complete" : "pending"}');
+      print('\n\n');
+      index++;
+    }
   }
 
   List<Task> Completed(){
