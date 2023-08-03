@@ -9,9 +9,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(  
       home: Scaffold(
-        body:Counter(),
+        appBar: AppBar(
+          title:const Text("Circular Counter"),
+        ),
+        body:const Counter(),
         ),
       );
       
