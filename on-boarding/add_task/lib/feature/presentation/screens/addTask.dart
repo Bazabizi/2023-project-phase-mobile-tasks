@@ -21,7 +21,7 @@ class AddTask extends StatelessWidget {
             ),
         ),
         title: const Text(
-          'create new task',
+          'Create new task',
           style:  TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
