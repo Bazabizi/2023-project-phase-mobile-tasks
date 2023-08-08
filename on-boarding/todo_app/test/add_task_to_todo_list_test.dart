@@ -7,18 +7,19 @@ import 'package:todo_app/todo/presentation/widgets/task_list.dart';
 
 void main(){
 group('To-do screen test', () { 
-    testWidgets('To-do list screen has no tasks initally', (tester) async {
+    testWidgets('To-do list screen has no tasks initally', 
+                (tester) async {
       await tester.pumpWidget(MaterialApp(
         onGenerateRoute: Routes.generateRoute,
         
         home: TodoList()));    
       expect(find.byType(TaskList), findsNothing);
-
       },
     );
 
 
-    testWidgets('To-do list will have no tasks after inserting invalid input', (tester) async {
+    testWidgets('To-do list will have no tasks after inserting invalid input', 
+                (tester) async {
       await tester.pumpWidget(MaterialApp(
         onGenerateRoute: Routes.generateRoute,
         
@@ -34,19 +35,15 @@ group('To-do screen test', () {
       await tester.pumpAndSettle();
 
       expect(find.byType(TaskList), findsNothing);
-
-
-
     });
 
-    testWidgets('To-do list will have one task after inserting valid input', (tester) async {
+    testWidgets('To-do list will have one task after inserting valid input', 
+                (tester) async {
     
     await tester.pumpWidget(MaterialApp(
-      onGenerateRoute: Routes.generateRoute,
-      
+      onGenerateRoute: Routes.generateRoute,      
       home: AddTask()));
 
-    
     final inputFields = tester.widgetList(find.byType(TextField)).toList();
     
     await tester.enterText(find.byWidget(inputFields[0]), 'Task 1');
@@ -57,12 +54,7 @@ group('To-do screen test', () {
     await tester.pumpAndSettle();
     
     expect(find.byType(TaskList), findsOneWidget);
-
-  
-
     });
-
-    
 
   });
 }
