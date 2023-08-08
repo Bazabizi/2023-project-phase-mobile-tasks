@@ -9,10 +9,11 @@ void main(){
 group('To-do screen test', () { 
     testWidgets('To-do list screen has no tasks initally', 
                 (tester) async {
+
       await tester.pumpWidget(MaterialApp(
         onGenerateRoute: Routes.generateRoute,
-        
-        home: TodoList()));    
+        home: TodoList()));
+
       expect(find.byType(TaskList), findsNothing);
       },
     );
@@ -20,9 +21,9 @@ group('To-do screen test', () {
 
     testWidgets('To-do list will have no tasks after inserting invalid input', 
                 (tester) async {
+      
       await tester.pumpWidget(MaterialApp(
         onGenerateRoute: Routes.generateRoute,
-        
         home: AddTask()));
 
       //input invalid data
@@ -41,8 +42,8 @@ group('To-do screen test', () {
                 (tester) async {
     
     await tester.pumpWidget(MaterialApp(
-      onGenerateRoute: Routes.generateRoute,      
-      home: AddTask()));
+    onGenerateRoute: Routes.generateRoute,      
+    home: AddTask()));
 
     final inputFields = tester.widgetList(find.byType(TextField)).toList();
     

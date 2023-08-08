@@ -8,12 +8,12 @@ import 'package:todo_app/todo/presentation/widgets/task_list.dart';
 void main(){
 
   group('todo list screen  display test', () { 
-    testWidgets('To-do list will have two tasks after adding two tasks', (tester) async {
+    testWidgets('To-do list will have two tasks after adding two tasks', 
+      (tester) async {
     
     await tester.pumpWidget(MaterialApp(
-    onGenerateRoute: Routes.generateRoute,
-      
-    home: AddTask()));
+      onGenerateRoute: Routes.generateRoute,
+      home: AddTask()));
 
     
     final inputFields = tester.widgetList(find.byType(TextField)).toList();

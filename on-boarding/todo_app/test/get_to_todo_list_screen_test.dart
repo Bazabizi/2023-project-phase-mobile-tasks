@@ -15,11 +15,11 @@ import 'package:todo_app/todo/presentation/screens/todo_list.dart';
 
 void main() {
 
-  testWidgets('onboarding screen will go to to-do list screen when button clicked', (tester) async {
+  testWidgets('onboarding screen will go to to-do list screen when button clicked', 
+      (tester) async {
     
     await tester.pumpWidget(const MaterialApp(
-       onGenerateRoute: Routes.generateRoute,
-      
+      onGenerateRoute: Routes.generateRoute,
       home: Onboarding()
     ));
 
