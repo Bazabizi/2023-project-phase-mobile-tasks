@@ -10,8 +10,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:todo_app/main.dart';
 import 'package:todo_app/routes.dart';
-import 'package:todo_app/todo/presentation/screens/onboarding.dart';
-import 'package:todo_app/todo/presentation/screens/todo_list.dart';
+import 'package:todo_app/features/todo/presentation/screens/onboarding.dart';
+import 'package:todo_app/features/todo/presentation/screens/todo_list.dart';
 
 void main() {
 

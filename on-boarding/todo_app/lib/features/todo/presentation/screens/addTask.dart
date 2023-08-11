@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/todo/Model/TaskManager.dart';
-import 'package:todo_app/todo/presentation/screens/todo_list.dart';
+import 'package:todo_app/features/todo/Model/TaskManager.dart';
+import 'package:todo_app/features/todo/presentation/screens/todo_list.dart';
 
-import '../../../routes.dart';
+import '../../../../routes.dart';
 import '../../Model/Task.dart';
 import '../widgets/button_add_task.dart';
 import '../widgets/customTextInput.dart';
