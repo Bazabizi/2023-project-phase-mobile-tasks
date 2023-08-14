@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/todo/Model/Task.dart';
-import 'package:todo_app/todo/presentation/screens/addTask.dart';
-import 'package:todo_app/todo/presentation/screens/task_detail.dart';
-import 'package:todo_app/todo/presentation/screens/todo_list.dart';
-import 'package:todo_app/todo/presentation/screens/onboarding.dart';
+import 'package:todo_app/features/todo/Model/Task.dart';
+import 'package:todo_app/features/todo/presentation/screens/addTask.dart';
+import 'package:todo_app/features/todo/presentation/screens/task_detail.dart';
+import 'package:todo_app/features/todo/presentation/screens/todo_list.dart';
+import 'package:todo_app/features/todo/presentation/screens/onboarding.dart';
 
 class Routes {
   static const String onboarding = '/';

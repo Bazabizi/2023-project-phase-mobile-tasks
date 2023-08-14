@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/routes.dart';
-import 'package:todo_app/todo/presentation/screens/onboarding.dart';
-import 'package:todo_app/todo/presentation/screens/todo_list.dart';
+import 'package:todo_app/features/todo/presentation/screens/onboarding.dart';
+import 'package:todo_app/features/todo/presentation/screens/todo_list.dart';
 
 void main() {
   runApp(const MyApp());

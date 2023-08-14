@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:todo_app/routes.dart';
-import 'package:todo_app/todo/presentation/screens/addTask.dart';
-import 'package:todo_app/todo/presentation/widgets/button_todo.dart';
-import 'package:todo_app/todo/presentation/widgets/task_list.dart';
+import 'package:todo_app/features/todo/presentation/screens/addTask.dart';
+import 'package:todo_app/features/todo/presentation/widgets/button_todo.dart';
+import 'package:todo_app/features/todo/presentation/widgets/task_list.dart';
 
 void main(){
 

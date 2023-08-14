@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/todo/Model/Task.dart';
+import 'package:todo_app/features/todo/Model/Task.dart';
 import '../widgets/navigation.dart';
 import '../widgets/task_element.dart';
 
