@@ -5,13 +5,14 @@ class Task extends Equatable{
   final String title;
   final String description;
   final DateTime dueDate;
-  final bool isCompleted = false;
+  final bool isCompleted;
   
   const Task({
     required this.id, 
     required this.title,
     required this.description,
     required this.dueDate,
+    this.isCompleted = false,
   });  
 
   @override
