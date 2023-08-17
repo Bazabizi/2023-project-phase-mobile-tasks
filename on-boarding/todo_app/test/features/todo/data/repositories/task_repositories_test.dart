@@ -10,14 +10,9 @@ import 'package:todo_app/features/todo/data/datasources/task_remote_data_source.
 import 'package:todo_app/features/todo/data/models/task_model.dart';
 import 'package:todo_app/features/todo/data/repositories/task_repositories_impl.dart';
 
-class MockTaskLocalDataSource extends Mock
-    implements TaskLocalDataSource {}
-class MockTaskRemoteDataSource extends Mock 
-    implements TaskRemoteDataSource{
-}  
-class MockNetworkInfo extends Mock implements NetworkInfo {}
+import 'task_repositories_test.mocks.dart';
 
-@GenerateMocks([MockTaskLocalDataSource,MockTaskRemoteDataSource,MockNetworkInfo])
+@GenerateMocks([TaskLocalDataSource,TaskRemoteDataSource,NetworkInfo])
 void main(){
 
   late TaskRepositoryImpl repository;

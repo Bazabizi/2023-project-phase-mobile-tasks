@@ -6,9 +6,12 @@
 import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:todo_app/core/network/network_info.dart' as _i6;
+import 'package:todo_app/features/todo/data/datasources/task_local_data_source.dart'
+    as _i3;
+import 'package:todo_app/features/todo/data/datasources/task_remote_data_source.dart'
+    as _i5;
 import 'package:todo_app/features/todo/data/models/task_model.dart' as _i2;
-
-import 'task_repositories_test.dart' as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -31,12 +34,12 @@ class _FakeTaskModel_0 extends _i1.SmartFake implements _i2.TaskModel {
         );
 }
 
-/// A class which mocks [MockTaskLocalDataSource].
+/// A class which mocks [TaskLocalDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMockTaskLocalDataSource extends _i1.Mock
-    implements _i3.MockTaskLocalDataSource {
-  MockMockTaskLocalDataSource() {
+class MockTaskLocalDataSource extends _i1.Mock
+    implements _i3.TaskLocalDataSource {
+  MockTaskLocalDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -90,29 +93,32 @@ class MockMockTaskLocalDataSource extends _i1.Mock
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
   @override
-  void cacheTask(_i2.TaskModel? remoteTask) => super.noSuchMethod(
+  _i4.Future<void> cacheTask(_i2.TaskModel? remoteTask) => (super.noSuchMethod(
         Invocation.method(
           #cacheTask,
           [remoteTask],
         ),
-        returnValueForMissingStub: null,
-      );
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
   @override
-  void cacheTasks(List<_i2.TaskModel>? remoteTasks) => super.noSuchMethod(
+  _i4.Future<void> cacheTasks(List<_i2.TaskModel>? remoteTasks) =>
+      (super.noSuchMethod(
         Invocation.method(
           #cacheTasks,
           [remoteTasks],
         ),
-        returnValueForMissingStub: null,
-      );
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }
 
-/// A class which mocks [MockTaskRemoteDataSource].
+/// A class which mocks [TaskRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMockTaskRemoteDataSource extends _i1.Mock
-    implements _i3.MockTaskRemoteDataSource {
-  MockMockTaskRemoteDataSource() {
+class MockTaskRemoteDataSource extends _i1.Mock
+    implements _i5.TaskRemoteDataSource {
+  MockTaskRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -167,11 +173,17 @@ class MockMockTaskRemoteDataSource extends _i1.Mock
       ) as _i4.Future<void>);
 }
 
-/// A class which mocks [MockNetworkInfo].
+/// A class which mocks [NetworkInfo].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMockNetworkInfo extends _i1.Mock implements _i3.MockNetworkInfo {
-  MockMockNetworkInfo() {
+class MockNetworkInfo extends _i1.Mock implements _i6.NetworkInfo {
+  MockNetworkInfo() {
     _i1.throwOnMissingStub(this);
   }
+
+  @override
+  _i4.Future<bool> get isConnected => (super.noSuchMethod(
+        Invocation.getter(#isConnected),
+        returnValue: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
 }
