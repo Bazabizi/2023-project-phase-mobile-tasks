@@ -93,20 +93,6 @@ class MockTaskLocalDataSource extends _i1.Mock
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
   @override
-  _i4.Future<_i2.TaskModel> getLastTask() => (super.noSuchMethod(
-        Invocation.method(
-          #getLastTask,
-          [],
-        ),
-        returnValue: _i4.Future<_i2.TaskModel>.value(_FakeTaskModel_0(
-          this,
-          Invocation.method(
-            #getLastTask,
-            [],
-          ),
-        )),
-      ) as _i4.Future<_i2.TaskModel>);
-  @override
   _i4.Future<void> cacheTask(_i2.TaskModel? remoteTask) => (super.noSuchMethod(
         Invocation.method(
           #cacheTask,

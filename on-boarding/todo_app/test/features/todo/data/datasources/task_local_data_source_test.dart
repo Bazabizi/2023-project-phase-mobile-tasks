@@ -7,72 +7,157 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_app/core/error/exception.dart';
 import 'package:todo_app/features/todo/data/datasources/task_local_data_source.dart';
 import 'package:todo_app/features/todo/data/models/task_model.dart';
-
-import '../../../../fixtures/fixture_reader.dart';
-import 'task_local_data_source_test.mocks.dart';
+import './task_local_data_source_test.mocks.dart';
 
 @GenerateMocks([SharedPreferences])
 void main() {
   late TaskLocalDataSourceImpl dataSource;
   late MockSharedPreferences mockSharedPreferences;
-  
-  setUp(()
-  {
+  const CACHED_TASK = 'CACHED_TASK';
+
+
+  setUp(() {
     mockSharedPreferences = MockSharedPreferences();
     dataSource = TaskLocalDataSourceImpl(sharedPreferences: mockSharedPreferences);
   });
 
-  group('getLastTask', () {
-  final tTaskModel =
-      TaskModel.fromJson(json.decode(fixture('response.json')));
+  group('getTasks', () {
+    final tTaskModelList = [
+      TaskModel(
+          id: 1,
+          title: 'Test Task',
+          description: 'Test Description',
+          dueDate: DateTime.now(),
+          isCompleted: false),
+      TaskModel(
+          id: 2,
+          title: 'Test Task 2',
+          description: 'Test Description 2',
+          dueDate: DateTime.now(),
+          isCompleted: false),
+    ];
 
-  test(
-    'should return Task from SharedPreferences when there is one in the cache',
-    () async {
-      // arrange
-      when(mockSharedPreferences.getString(any))
-          .thenReturn(fixture('response.json'));
-      // act
-      final result = await dataSource.getLastTask();
-      // assert
-      verify(mockSharedPreferences.getString(CACHED_TASK));
-      expect(result, equals(tTaskModel));
-    },
-  );
-test('should throw a CacheException when there is not a chached value', () async {
-      // arrange
-      when(mockSharedPreferences.getString(any)).thenReturn(null);
+    test(
+      'should return List<TaskModel> from SharedPreferences when there is one in the cache',
+      () async {
+        // arrange
+    final updatedTaskJsonList = tTaskModelList.map((task) => task.toJson()).toList();
 
-      // act
-      final call = dataSource.getLastTask;
+        when(mockSharedPreferences.getString(any))
+            .thenReturn(json.encode(updatedTaskJsonList));
+        // act
+        final result = await dataSource.getTasks();
+        // assert
+        verify(mockSharedPreferences.getString(CACHED_TASK));
+        expect(result, equals(tTaskModelList));
+      },
+    );
+
     
-      // assert
-      expect(() => call(), throwsA(const TypeMatcher<CacheException>()));
+  });
 
+  group('createTask', () {
+    final tTaskModelList = [
+      TaskModel(
+          id: 1,
+          title: 'Test Task',
+          description: 'Test Description',
+          dueDate: DateTime.now(),
+          isCompleted: false),
+      TaskModel(
+          id: 2,
+          title: 'Test Task 2',
+          description: 'Test Description 2',
+          dueDate: DateTime.now(),
+          isCompleted: false),
+    ];
 
-    });
+    test(
+      'should return List<TaskModel> from SharedPreferences when there is one in the cache',
+      () async {
+        // arrange
+    final updatedTaskJsonList = tTaskModelList.map((task) => task.toJson()).toList();
 
+        when(mockSharedPreferences.getString(any))
+            .thenReturn(json.encode(updatedTaskJsonList));
+        // act
+        final result = await dataSource.getTasks();
+        // assert
+        verify(mockSharedPreferences.getString(CACHED_TASK));
+        expect(result, equals(tTaskModelList));
+      },
+    );
 
-});
+    
+  });
 
-group('cacheTask', () { 
-    final tTaskModel = TaskModel(id: 1, title: 'title', description: 'description', dueDate: DateTime.parse("2023-08-10T12:34:56.789Z"), isCompleted: false);
+  group('deleteTask', () {
+    final tTaskModelList = [
+      TaskModel(
+          id: 1,
+          title: 'Test Task',
+          description: 'Test Description',
+          dueDate: DateTime.now(),
+          isCompleted: false),
+      TaskModel(
+          id: 2,
+          title: 'Test Task 2',
+          description: 'Test Description 2',
+          dueDate: DateTime.now(),
+          isCompleted: false),
+    ];
 
-    test('should call SharedPreferences to cache the data', () async {
-      
-      // arrange
+    test(
+      'should return List<TaskModel> from SharedPreferences when there is one in the cache',
+      () async {
+        // arrange
+    final updatedTaskJsonList = tTaskModelList.map((task) => task.toJson()).toList();
 
-      when(mockSharedPreferences.setString(any, any))
-          .thenAnswer((_) => Future.value(true));
-      // act
-      dataSource.cacheTask(tTaskModel);
+        when(mockSharedPreferences.getString(any))
+            .thenReturn(json.encode(updatedTaskJsonList));
+        // act
+        final result = await dataSource.getTasks();
+        // assert
+        verify(mockSharedPreferences.getString(CACHED_TASK));
+        expect(result, equals(tTaskModelList));
+      },
+    );
 
-      // assert
-      final expectedJsonString = json.encode(tTaskModel.toJson());
-      verify(mockSharedPreferences.setString(CACHED_TASK, expectedJsonString,));
+    
+  });
 
+  group('getTask', () {
+    final tTaskModelList = [
+      TaskModel(
+          id: 1,
+          title: 'Test Task',
+          description: 'Test Description',
+          dueDate: DateTime.now(),
+          isCompleted: false),
+      TaskModel(
+          id: 2,
+          title: 'Test Task 2',
+          description: 'Test Description 2',
+          dueDate: DateTime.now(),
+          isCompleted: false),
+    ];
 
-    });
+    test(
+      'should return List<TaskModel> from SharedPreferences when there is one in the cache',
+      () async {
+        // arrange
+    final updatedTaskJsonList = tTaskModelList.map((task) => task.toJson()).toList();
 
+        when(mockSharedPreferences.getString(any))
+            .thenReturn(json.encode(updatedTaskJsonList));
+        // act
+        final result = await dataSource.getTasks();
+        // assert
+        verify(mockSharedPreferences.getString(CACHED_TASK));
+        expect(result, equals(tTaskModelList));
+      },
+    );
+
+    
   });
 }
