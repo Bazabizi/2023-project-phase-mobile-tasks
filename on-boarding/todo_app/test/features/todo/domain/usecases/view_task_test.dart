@@ -33,7 +33,7 @@ void main() {
       when(mockTaskRepository.getTask(any))
           .thenAnswer((_) async =>  Right(task));
       
-      final result = await usecase(const Params(id: id));
+      final result = await usecase(const ViewParams(id: id));
       // assert
       expect(result, Right(task));
       verify(mockTaskRepository.getTask(id));

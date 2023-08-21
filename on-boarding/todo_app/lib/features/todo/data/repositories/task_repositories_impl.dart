@@ -23,10 +23,10 @@ class TaskRepositoryImpl extends TaskRepository{
 
 
   @override
-  Future<Either<Failure, void>> createTask(Task task) async{
+  Future<Either<Failure, Task>> createTask(Task task) async{
   try {
       await remoteDataSource.createTask(task as TaskModel);
-      return const Right(null);
+      return Right(task);
     } catch (e) {
       return const Left(CacheFailure(message: 'Can not create task'));
     }  

@@ -5,22 +5,22 @@ import '../../../../core/error/failure.dart';
 import '../../../../core/usecases/usecase.dart';
 import '../repositories/task_repository.dart';
 
-class DeleteTask extends UseCase<void , Params> {
+class DeleteTask extends UseCase<void , DeleteParams> {
   final TaskRepository repository;
 
   DeleteTask({required this.repository});
 
   @override
-  Future<Either<Failure, void>> call(Params params ) async {
+  Future<Either<Failure, void>> call(DeleteParams params ) async {
     return await repository.deleteTask(params.id);
   }
   
 }
 
-class Params extends Equatable{
+class DeleteParams extends Equatable{
   final int id;
   
-  const Params({
+  const DeleteParams({
     required this.id,
   });  
 

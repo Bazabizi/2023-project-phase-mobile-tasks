@@ -31,7 +31,7 @@ void main() {
       when(mockTaskRepository.deleteTask(id))
           .thenAnswer((_) async => const Right(null));
       
-      final result = await usecase(const Params(id: id));
+      final result = await usecase(const DeleteParams(id: id));
 
       expect(result, const Right(null));
       verify(mockTaskRepository.deleteTask(id));

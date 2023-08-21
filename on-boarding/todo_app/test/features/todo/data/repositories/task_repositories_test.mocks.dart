@@ -123,6 +123,14 @@ class MockTaskRemoteDataSource extends _i1.Mock
   }
 
   @override
+  _i4.Future<List<_i2.TaskModel>> getTasks() => (super.noSuchMethod(
+        Invocation.method(
+          #getTasks,
+          [],
+        ),
+        returnValue: _i4.Future<List<_i2.TaskModel>>.value(<_i2.TaskModel>[]),
+      ) as _i4.Future<List<_i2.TaskModel>>);
+  @override
   _i4.Future<_i2.TaskModel> getTask(int? id) => (super.noSuchMethod(
         Invocation.method(
           #getTask,
@@ -137,40 +145,49 @@ class MockTaskRemoteDataSource extends _i1.Mock
         )),
       ) as _i4.Future<_i2.TaskModel>);
   @override
-  _i4.Future<List<_i2.TaskModel>> getTasks() => (super.noSuchMethod(
-        Invocation.method(
-          #getTasks,
-          [],
-        ),
-        returnValue: _i4.Future<List<_i2.TaskModel>>.value(<_i2.TaskModel>[]),
-      ) as _i4.Future<List<_i2.TaskModel>>);
-  @override
-  _i4.Future<void> createTask(_i2.TaskModel? task) => (super.noSuchMethod(
+  _i4.Future<_i2.TaskModel> createTask(_i2.TaskModel? todo) =>
+      (super.noSuchMethod(
         Invocation.method(
           #createTask,
-          [task],
+          [todo],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i4.Future<_i2.TaskModel>.value(_FakeTaskModel_0(
+          this,
+          Invocation.method(
+            #createTask,
+            [todo],
+          ),
+        )),
+      ) as _i4.Future<_i2.TaskModel>);
   @override
-  _i4.Future<void> updateTask(_i2.TaskModel? task) => (super.noSuchMethod(
+  _i4.Future<_i2.TaskModel> updateTask(_i2.TaskModel? todo) =>
+      (super.noSuchMethod(
         Invocation.method(
           #updateTask,
-          [task],
+          [todo],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i4.Future<_i2.TaskModel>.value(_FakeTaskModel_0(
+          this,
+          Invocation.method(
+            #updateTask,
+            [todo],
+          ),
+        )),
+      ) as _i4.Future<_i2.TaskModel>);
   @override
-  _i4.Future<void> deleteTask(int? id) => (super.noSuchMethod(
+  _i4.Future<_i2.TaskModel> deleteTask(int? id) => (super.noSuchMethod(
         Invocation.method(
           #deleteTask,
           [id],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i4.Future<_i2.TaskModel>.value(_FakeTaskModel_0(
+          this,
+          Invocation.method(
+            #deleteTask,
+            [id],
+          ),
+        )),
+      ) as _i4.Future<_i2.TaskModel>);
 }
 
 /// A class which mocks [NetworkInfo].

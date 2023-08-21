@@ -6,20 +6,20 @@ import '../../../../core/error/failure.dart';
 import '../../../../core/usecases/usecase.dart';
 import '../entities/task.dart';
 
-class ViewTask extends UseCase<Task , Params>{
+class ViewTask extends UseCase<Task , ViewParams>{
   final TaskRepository repository;
   ViewTask({required this.repository});
 
   @override
-  Future<Either<Failure , Task>> call(Params params ) async {
+  Future<Either<Failure , Task>> call(ViewParams params ) async {
     return await repository.getTask(params.id);
   }
 }
 
-class Params extends Equatable{
+class ViewParams extends Equatable{
   final int id;
   
-  const Params({
+  const ViewParams({
     required this.id,
   });  
 

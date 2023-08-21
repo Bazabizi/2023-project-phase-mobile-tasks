@@ -29,11 +29,11 @@ void main() {
     'should add task from the repository',
     () async {
       when(mockTaskRepository.createTask(task))
-          .thenAnswer((_) async => const Right(null));
+          .thenAnswer((_) async =>  Right(task));
       
-      final result = await usecase(Params(task: task));
+      final result = await usecase(CreateParams(task: task));
       // assert
-      expect(result, Right(null));
+      expect(result, Right(task));
       verify(mockTaskRepository.createTask(task));
       verifyNoMoreInteractions(mockTaskRepository);
     },
